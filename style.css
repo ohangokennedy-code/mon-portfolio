@@ -19,26 +19,24 @@ header {
 
 .header-gauche {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 10px;
+}
+
+.logo-header {
+  height: 180px;
+  width: auto;
+  opacity: 0.9;
+}
+
+.header-centre {
+  display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  flex: 1;
   gap: 8px;
-  padding-left: 40px;
-}
-
-.header-titre {
-  margin: 0;
-  font-size: 13px;
-  opacity: 0.8;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-.header-nom {
-  margin: 0;
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
 }
 
 .photo-profil {
@@ -49,19 +47,20 @@ header {
   border: 3px solid white;
 }
 
-.header-centre {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-  align-self: stretch;
-  padding: 0 20px;
+.header-nom {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
 }
 
-.logo-header {
-  height: 180px;
-  width: auto;
-  opacity: 0.9;
+.header-titre {
+  margin: 0;
+  font-size: 13px;
+  opacity: 0.8;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 .header-droite {
@@ -280,4 +279,20 @@ footer {
     padding: 20px;
   }
 
+}
+
+/* ======= CONTACT ======= */
+#contact a {
+  color: #2e6da4;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#contact a:hover {
+  text-decoration: underline;
+}
+
+#contact p {
+  margin-bottom: 10px;
+  font-size: 15px;
 }
