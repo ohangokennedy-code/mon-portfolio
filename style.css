@@ -1,4 +1,4 @@
-/* Général */
+/* ======= GÉNÉRAL ======= */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -6,29 +6,93 @@ body {
   color: #333333;
 }
 
-/* En-tête */
+/* ======= HEADER ======= */
 header {
-  background-color: #529de9;
+  background-color: #1a3c5e;
   color: white;
-  text-align: center;
-  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  min-height: 160px;
 }
 
-/* Navigation */
-nav {
-  background-color: #2e6da4;
+.header-gauche {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding-left: 40px;
+}
+
+.header-titre {
+  margin: 0;
+  font-size: 13px;
+  opacity: 0.8;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   text-align: center;
-  padding: 12px;
+}
+
+.header-nom {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.photo-profil {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+}
+
+.header-centre {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  align-self: stretch;
+  padding: 0 20px;
+}
+
+.logo-header {
+  height: 180px;
+  width: auto;
+  opacity: 0.9;
+}
+
+.header-droite {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  align-self: stretch;
+  padding-bottom: 15px;
+  padding-right: 10px;
+}
+
+/* ======= NAVIGATION ======= */
+nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 25px;
 }
 
 nav a {
   color: white;
-  margin: 0 20px;
   text-decoration: none;
   font-weight: bold;
+  font-size: 14px;
 }
 
-/* Contenu principal */
+nav a:hover {
+  opacity: 0.7;
+}
+
+/* ======= CONTENU PRINCIPAL ======= */
 main {
   max-width: 900px;
   margin: 40px auto;
@@ -42,15 +106,12 @@ section {
   border-radius: 6px;
 }
 
-/* Pied de page */
-footer {
-  background-color: #1a3c5e;
-  color: white;
-  text-align: center;
-  padding: 20px;
+h3 {
+  color: #2e6da4;
+  margin-top: 20px;
 }
 
-/* Listes */
+/* ======= LISTES ======= */
 ul {
   padding-left: 20px;
 }
@@ -59,24 +120,7 @@ ul li {
   margin-bottom: 8px;
 }
 
-/* Sous-titres dans les sections */
-h3 {
-  color: #2e6da4;
-  margin-top: 20px;
-}
-
-/* Nav en flex */
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-}
-
-nav a {
-  margin: 0;
-}
-
-/* Compétences côte à côte */
+/* ======= COMPÉTENCES ======= */
 .competences-grid {
   display: flex;
   gap: 40px;
@@ -86,17 +130,6 @@ nav a {
   flex: 1;
 }
 
-/* Photo de profil */
-header img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid white;
-  margin-bottom: 15px;
-}
-
-/* Barres de progression */
 .competence-item {
   margin-bottom: 12px;
 }
@@ -119,7 +152,12 @@ header img {
   border-radius: 6px;
 }
 
-/* Grille de projets */
+/* ======= PROJETS ======= */
+#projets {
+  background-color: #f4f4f4;
+  padding: 30px;
+}
+
 .projets-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -139,11 +177,16 @@ header img {
   object-fit: cover;
 }
 
+.carte iframe {
+  width: 100%;
+  height: 200px;
+  display: block;
+}
+
 .carte-contenu {
   padding: 20px;
 }
 
-/* Tag catégorie */
 .tag {
   background-color: #2e6da4;
   color: white;
@@ -162,48 +205,79 @@ header img {
   font-size: 14px;
 }
 
-/* Correction section projets */
-#projets {
-  background-color: #f4f4f4;
-  padding: 30px;
+/* ======= FOOTER ======= */
+footer {
+  background-color: #1a3c5e;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 15px 40px;
+  min-height: 70px;
 }
 
-/* Correction iframe vidéo */
-.carte iframe {
-  width: 100%;
-  height: 200px;
-  display: block;
+.logo-footer {
+  height: 50px;
+  width: auto;
+  opacity: 0.85;
 }
 
 /* ======= RESPONSIVE MOBILE ======= */
 @media (max-width: 768px) {
 
-  /* Navigation en colonne */
-  nav {
+  header {
     flex-direction: column;
-    gap: 10px;
-    padding: 15px;
+    text-align: center;
+    padding: 20px;
+    min-height: auto;
   }
 
-  /* Compétences en colonne */
+  .header-gauche {
+    align-items: center;
+    padding-left: 0;
+  }
+
+  .header-centre {
+    padding: 15px 0;
+  }
+
+  .logo-header {
+    height: 100px;
+  }
+
+  .header-droite {
+    align-items: center;
+    padding: 0;
+  }
+
+  nav {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
   .competences-grid {
     flex-direction: column;
   }
 
-  /* Projets en colonne unique */
   .projets-grid {
     grid-template-columns: 1fr;
   }
 
-  /* Titre plus petit */
   h1 {
     font-size: 24px;
   }
 
-  /* Marges réduites */
   main {
     margin: 20px auto;
     padding: 0 10px;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
   }
 
 }
