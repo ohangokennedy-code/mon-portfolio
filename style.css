@@ -296,3 +296,83 @@ footer {
   margin-bottom: 10px;
   font-size: 15px;
 }
+
+/* ======= CATÉGORIES ACCORDÉON ======= */
+.categorie {
+  margin-bottom: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.categorie-header {
+  background-color: #1a3c5e;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.categorie-header:hover {
+  background-color: #2e6da4;
+}
+
+.toggle-icon {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.categorie-contenu {
+  display: none;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+/* Bouton voir vidéo */
+.btn-voir {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: #2e6da4;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.btn-voir:hover {
+  background-color: #1a3c5e;
+}
+
+/* ======= FORMATIONS ======= */
+.formations-grid {
+  display: flex;
+  gap: 30px;
+}
+
+.formation-carte {
+  flex: 1;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  padding: 25px;
+  text-align: center;
+  border-top: 4px solid #2e6da4;
+}
+
+.formation-icone {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.formation-carte h3 {
+  color: #1a3c5e;
+  margin-top: 0;
+}
+
+.formation-carte ul {
+  text-align: left;
+  display: inline-block;
+}
