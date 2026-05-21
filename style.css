@@ -596,3 +596,35 @@ footer p {
     gap: 30px;
   }
 }
+
+/* ======= HERO OUTILS ======= */
+.hero-outils {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.btn-outils {
+  display: inline-block;
+  background-color: rgba(255,255,255,0.15);
+  color: var(--blanc);
+  border: 2px solid rgba(255,255,255,0.4);
+  padding: 14px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.2s;
+  margin-bottom: 12px;
+}
+
+.btn-outils:hover {
+  background-color: rgba(255,255,255,0.25);
+  transform: translateY(-2px);
+}
+
+.hero-outils-desc {
+  font-size: 13px;
+  opacity: 0.7;
+  margin-top: 8px;
+}

@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Outils de calcul — Hango Kennedy</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <style>
+      .outil-section {
+        background-color: var(--blanc);
+        border-radius: var(--radius);
+        box-shadow: var(--ombre);
+        padding: 35px;
+        margin-bottom: 30px;
+      }
+
+      .outil-section h2 {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--bleu-fonce);
+        margin-bottom: 25px;
+        padding-bottom: 12px;
+        border-bottom: 3px solid var(--bleu-clair);
+        display: inline-block;
+      }
+
+      .outil-intro {
+        font-size: 14px;
+        color: var(--texte-leger);
+        margin-bottom: 20px;
+        font-style: italic;
+      }
+
+      .piece-bloc {
+        background-color: var(--gris-clair);
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 15px;
+        border-left: 4px solid var(--bleu-clair);
+      }
+
+      .piece-bloc h4 {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--bleu-fonce);
+        margin-bottom: 15px;
+      }
+
+      .input-row {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+      }
+
+      .input-groupe {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 120px;
+      }
+
+      .input-groupe label {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--bleu-fonce);
+        margin-bottom: 5px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .input-groupe input,
+      .input-groupe select {
+        padding: 10px 12px;
+        border: 2px solid var(--gris);
+        border-radius: 8px;
+        font-size: 14px;
+        font-family: 'Inter', Arial, sans-serif;
+        color: var(--texte);
+        background-color: var(--blanc);
+        transition: border-color 0.2s;
+        outline: none;
+      }
+
+      .input-groupe input:focus,
+      .input-groupe select:focus {
+        border-color: var(--bleu-clair);
+      }
+
+      .btn-ajouter {
+        background-color: transparent;
+        color: var(--bleu-clair);
+        border: 2px dashed var(--bleu-clair);
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 15px;
+        font-family: 'Inter', Arial, sans-serif;
+        transition: all 0.2s;
+      }
+
+      .btn-ajouter:hover {
+        background-color: var(--accent);
+      }
+
+      .btn-supprimer {
+        background-color: transparent;
+        color: #e74c3c;
+        border: none;
+        font-size: 12px;
+        cursor: pointer;
+        font-family: 'Inter', Arial, sans-serif;
+        margin-top: 8px;
+        padding: 0;
+      }
+
+      .btn-calculer {
+        width: 100%;
+        padding: 15px;
+        background-color: var(--bleu-clair);
+        color: var(--blanc);
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        font-family: 'Inter', Arial, sans-serif;
+        transition: all 0.2s;
+        margin-top: 10px;
+      }
+
+      .btn-calculer:hover {
+        background-color: var(--bleu-moyen);
+        transform: translateY(-2px);
+      }
+
+      .resultats {
+        display: none;
+        background: linear-gradient(135deg, var(--bleu-fonce), var(--bleu-moyen));
+        color: var(--blanc);
+        border-radius: var(--radius);
+        padding: 30px;
+        margin-top: 25px;
+      }
+
+      .resultats h3 {
+        color: var(--blanc);
+        font-size: 18px;
+        margin-bottom: 20px;
+        text-transform: none;
+        letter-spacing: 0;
+      }
+
+      .resultat-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 15px;
+        margin-bottom: 25px;
+      }
+
+      .resultat-carte {
+        background-color: rgba(255,255,255,0.1);
+        border-radius: 10px;
+        padding: 18px;
+        text-align: center;
+      }
+
+      .resultat-carte .valeur {
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--blanc);
+        display: block;
+      }
+
+      .resultat-carte .unite {
+        font-size: 13px;
+        opacity: 0.8;
+        display: block;
+        margin-top: 4px;
+      }
+
+      .avertissement {
+        background-color: rgba(255,255,255,0.1);
+        border-radius: 8px;
+        padding: 15px 20px;
+        font-size: 13px;
+        opacity: 0.9;
+        margin-bottom: 20px;
+        line-height: 1.6;
+      }
+
+      .btn-devis {
+        display: block;
+        text-align: center;
+        background-color: var(--blanc);
+        color: var(--bleu-fonce);
+        padding: 14px 30px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 15px;
+        transition: all 0.2s;
+      }
+
+      .btn-devis:hover {
+        transform: translateY(-2px);
+        opacity: 0.9;
+      }
+
+      .separateur {
+        border: none;
+        border-top: 2px solid var(--gris);
+        margin: 20px 0;
+      }
+
+      .poteau-bloc {
+        background-color: var(--gris-clair);
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 15px;
+        border-left: 4px solid #e67e22;
+      }
+
+      @media (max-width: 768px) {
+        .input-row { flex-direction: column; }
+        .resultat-grid { grid-template-columns: 1fr 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- HEADER -->
+    <header>
+      <div class="header-gauche">
+        <img src="logo.png" alt="Logo Hango Kennedy" class="logo-header" />
+      </div>
+      <div class="header-centre">
+        <img src="photo.jpg" alt="Photo de Hango Kennedy" class="photo-profil" />
+        <p class="header-nom">Hango Kennedy</p>
+        <p class="header-titre">Concepteur & Conducteur de Travaux</p>
+      </div>
+      <div class="header-droite">
+        <nav>
+          <a href="index.html#apropos">À propos</a>
+          <a href="index.html#competences">Compétences</a>
+          <a href="index.html#formations">Formations</a>
+          <a href="index.html#projets">Projets</a>
+          <a href="index.html#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-contenu">
+        <p class="hero-tag">Outil gratuit</p>
+        <h1>Estimez les matériaux de votre projet</h1>
+        <p class="hero-description">Obtenez en quelques clics une estimation des quantités d'agglos, béton, peinture et carrelage nécessaires pour votre construction.</p>
+        <div class="hero-boutons">
+          <a href="index.html#projets" class="btn-principal">Voir mes projets</a>
+          <a href="index.html#contact" class="btn-secondaire">Me contacter</a>
+        </div>
+      </div>
+    </section>
+
+    <main>
+
+      <!-- AGGLOS -->
+      <div class="outil-section">
+        <h2>🧱 Quantité d'agglos</h2>
+        <p class="outil-intro">Entrez les dimensions de chaque pièce. L'outil calcule automatiquement le périmètre des murs, déduit les baies et vous donne la quantité d'agglos nécessaires.</p>
+
+        <div id="pieces-container"></div>
+        <button class="btn-ajouter" onclick="ajouterPiece()">+ Ajouter une pièce</button>
+
+        <hr class="separateur" />
+
+        <div class="piece-bloc">
+          <h4>🚪 Baies à déduire</h4>
+          <div id="portes-container"></div>
+          <button class="btn-ajouter" onclick="ajouterBaie('porte')">+ Ajouter une porte</button>
+          <div id="fenetres-container"></div>
+          <button class="btn-ajouter" onclick="ajouterBaie('fenetre')">+ Ajouter une fenêtre</button>
+          <div id="vides-container"></div>
+          <button class="btn-ajouter" onclick="ajouterBaie('vide')">+ Ajouter une ouverture vide</button>
+        </div>
+
+        <hr class="separateur" />
+
+        <div class="input-row">
+          <div class="input-groupe">
+            <label>Hauteur des murs (m)</label>
+            <input type="number" id="hauteur-murs" value="3" step="0.1" min="0" />
+          </div>
+          <div class="input-groupe">
+            <label>Type d'agglos</label>
+            <select id="type-agglos" onchange="updateChainage()">
+              <option value="12">12x20x40</option>
+              <option value="15">15x20x40</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="btn-calculer" onclick="calculerAgglos()">Calculer les agglos</button>
+
+        <div class="resultats" id="resultats-agglos">
+          <h3>📊 Résultats — Agglos</h3>
+          <div class="resultat-grid" id="grid-agglos"></div>
+          <div class="avertissement">
+            ⚠️ Ces quantités sont des estimations indicatives. Elles ne tiennent pas compte des pertes et des coupes. Pour un devis précis et complet, contactez-moi.
+          </div>
+          <a href="index.html#contact" class="btn-devis">📋 Demander un devis complet</a>
+        </div>
+      </div>
+
+      <!-- BÉTON -->
+      <div class="outil-section">
+        <h2>🏗️ Quantités de béton</h2>
+        <p class="outil-intro">Entrez les dimensions de chaque ouvrage en béton armé pour obtenir les quantités de ciment, gravier et sable nécessaires.</p>
+
+        <!-- DALLAGE -->
+        <div class="piece-bloc">
+          <h4>Dallage</h4>
+          <div class="input-row">
+            <div class="input-groupe">
+              <label>Longueur (m)</label>
+              <input type="number" id="dalle-l" step="0.1" min="0" placeholder="ex: 10" />
+            </div>
+            <div class="input-groupe">
+              <label>Largeur (m)</label>
+              <input type="number" id="dalle-w" step="0.1" min="0" placeholder="ex: 8" />
+            </div>
+            <div class="input-groupe">
+              <label>Épaisseur (m)</label>
+              <input type="number" id="dalle-ep" step="0.01" min="0" value="0.12" />
+            </div>
+          </div>
+        </div>
+
+        <!-- POTEAUX -->
+        <div class="piece-bloc" style="border-left-color: #e67e22;">
+          <h4>Poteaux</h4>
+          <p class="outil-intro">Vous pouvez avoir jusqu'à 3 types de poteaux de sections différentes.</p>
+
+          <div class="poteau-bloc">
+            <h4>Type de poteau 1 — Rectangulaire</h4>
+            <div class="input-row">
+              <div class="input-groupe">
+                <label>Longueur section (m)</label>
+                <input type="number" class="poteau-l" step="0.01" min="0" placeholder="ex: 0.25" />
+              </div>
+              <div class="input-groupe">
+                <label>Largeur section (m)</label>
+                <input type="number" class="poteau-w" step="0.01" min="0" placeholder="ex: 0.25" />
+              </div>
+              <div class="input-groupe">
+                <label>Hauteur (m)</label>
+                <input type="number" class="poteau-h" step="0.1" min="0" placeholder="ex: 3" />
+              </div>
+              <div class="input-groupe">
+                <label>Nombre</label>
+                <input type="number" class="poteau-n" step="1" min="0" placeholder="ex: 8" />
+              </div>
+            </div>
+          </div>
+
+          <div class="poteau-bloc">
+            <h4>Type de poteau 2 — Rectangulaire</h4>
+            <div class="input-row">
+              <div class="input-groupe">
+                <label>Longueur section (m)</label>
+                <input type="number" class="poteau-l" step="0.01" min="0" placeholder="ex: 0.20" />
+              </div>
+              <div class="input-groupe">
+                <label>Largeur section (m)</label>
+                <input type="number" class="poteau-w" step="0.01" min="0" placeholder="ex: 0.20" />
+              </div>
+              <div class="input-groupe">
+                <label>Hauteur (m)</label>
+                <input type="number" class="poteau-h" step="0.1" min="0" placeholder="ex: 3" />
+              </div>
+              <div class="input-groupe">
+                <label>Nombre</label>
+                <input type="number" class="poteau-n" step="1" min="0" placeholder="ex: 4" />
+              </div>
+            </div>
+          </div>
+
+          <div class="poteau-bloc">
+            <h4>Type de poteau 3 — Circulaire</h4>
+            <div class="input-row">
+              <div class="input-groupe">
+                <label>Rayon (m)</label>
+                <input type="number" id="poteau-circ-r" step="0.01" min="0" placeholder="ex: 0.15" />
+              </div>
+              <div class="input-groupe">
+                <label>Hauteur (m)</label>
+                <input type="number" id="poteau-circ-h" step="0.1" min="0" placeholder="ex: 3" />
+              </div>
+              <div class="input-groupe">
+                <label>Nombre</label>
+                <input type="number" id="poteau-circ-n" step="1" min="0" placeholder="ex: 0" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHAINAGE -->
+        <div class="piece-bloc" style="border-left-color: #27ae60;">
+          <h4>Chainage</h4>
+          <div class="input-row">
+            <div class="input-groupe">
+              <label>Largeur section (m)</label>
+              <input type="number" id="chainage-w" step="0.01" min="0" placeholder="ex: 0.15" />
+            </div>
+            <div class="input-groupe">
+              <label>Hauteur section (m)</label>
+              <input type="number" id="chainage-h" step="0.01" min="0" placeholder="ex: 0.20" />
+            </div>
+            <div class="input-groupe">
+              <label>Longueur développée (m)</label>
+              <input type="number" id="chainage-ld" step="0.1" min="0" placeholder="ex: 45" />
+            </div>
+          </div>
+        </div>
+
+        <!-- LINTEAUX -->
+        <div class="piece-bloc" style="border-left-color: #8e44ad;">
+          <h4>Linteaux</h4>
+          <div class="input-row">
+            <div class="input-groupe">
+              <label>Largeur section (m)</label>
+              <input type="number" id="linteau-w" step="0.01" min="0" placeholder="ex: 0.15" />
+            </div>
+            <div class="input-groupe">
+              <label>Hauteur section (m)</label>
+              <input type="number" id="linteau-h" step="0.01" min="0" placeholder="ex: 0.20" />
+            </div>
+            <div class="input-groupe">
+              <label>Longueur développée (m)</label>
+              <input type="number" id="linteau-ld" step="0.1" min="0" placeholder="ex: 12" />
+            </div>
+          </div>
+        </div>
+
+        <button class="btn-calculer" onclick="calculerBeton()">Calculer le béton</button>
+
+        <div class="resultats" id="resultats-beton">
+          <h3>📊 Résultats — Béton armé</h3>
+          <div class="resultat-grid" id="grid-beton"></div>
+          <div class="avertissement">
+            ⚠️ Ces quantités sont des estimations indicatives. Elles ne tiennent pas compte des pertes et des armatures. Pour un devis précis et complet, contactez-moi.
+          </div>
+          <a href="index.html#contact" class="btn-devis">📋 Demander un devis complet</a>
+        </div>
+      </div>
+
+      <!-- PEINTURE -->
+      <div class="outil-section">
+        <h2>🎨 Quantité de peinture</h2>
+        <p class="outil-intro">La surface des murs est reprise automatiquement depuis le calcul des agglos. Entrez la surface du plafond et le nombre de couches souhaité.</p>
+
+        <div class="input-row">
+          <div class="input-groupe">
+            <label>Surface plafond (m²)</label>
+            <input type="number" id="surface-plafond" step="0.1" min="0" placeholder="ex: 60" />
+          </div>
+          <div class="input-groupe">
+            <label>Nombre de couches</label>
+            <select id="nb-couches">
+              <option value="2">2 couches (minimum)</option>
+              <option value="3">3 couches</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="btn-calculer" onclick="calculerPeinture()">Calculer la peinture</button>
+
+        <div class="resultats" id="resultats-peinture">
+          <h3>📊 Résultats — Peinture</h3>
+          <div class="resultat-grid" id="grid-peinture"></div>
+          <div class="avertissement">
+            ⚠️ Ces quantités sont des estimations indicatives. La consommation réelle peut varier selon la qualité de la peinture et l'état des surfaces. Pour un devis précis, contactez-moi.
+          </div>
+          <a href="index.html#contact" class="btn-devis">📋 Demander un devis complet</a>
+        </div>
+      </div>
+
+      <!-- CARRELAGE -->
+      <div class="outil-section">
+        <h2>⬜ Quantité de carrelage</h2>
+        <p class="outil-intro">La surface au sol est reprise automatiquement depuis vos pièces. Une marge de 10% est ajoutée pour les coupes et les pertes.</p>
+
+        <button class="btn-calculer" onclick="calculerCarrelage()">Calculer le carrelage</button>
+
+        <div class="resultats" id="resultats-carrelage">
+          <h3>📊 Résultats — Carrelage 40x40</h3>
+          <div class="resultat-grid" id="grid-carrelage"></div>
+          <div class="avertissement">
+            ⚠️ Ces quantités incluent une marge de 10% pour les coupes et pertes. Pour un devis précis, contactez-moi.
+          </div>
+          <a href="index.html#contact" class="btn-devis">📋 Demander un devis complet</a>
+        </div>
+      </div>
+
+    </main>
+
+    <footer>
+      <img src="logo.png" alt="Logo Hango Kennedy" class="logo-footer" />
+      <p>© 2026 Hango Kennedy</p>
+    </footer>
+
+    <script>
+      let pieceCount = 0;
+      let porteCount = 0;
+      let fenetreCount = 0;
+      let videCount = 0;
+
+      // ======= PIÈCES =======
+      function ajouterPiece() {
+        pieceCount++;
+        const container = document.getElementById('pieces-container');
+        const div = document.createElement('div');
+        div.className = 'piece-bloc';
+        div.id = 'piece-' + pieceCount;
+        div.innerHTML = `
+          <h4>Pièce ${pieceCount}</h4>
+          <div class="input-row">
+            <div class="input-groupe">
+              <label>Longueur (m)</label>
+              <input type="number" class="piece-l" step="0.1" min="0" placeholder="ex: 4.5" />
+            </div>
+            <div class="input-groupe">
+              <label>Largeur (m)</label>
+              <input type="number" class="piece-w" step="0.1" min="0" placeholder="ex: 3.5" />
+            </div>
+            <div class="input-groupe" style="max-width:200px">
+              <label>OU Périmètre direct (m)</label>
+              <input type="number" class="piece-p" step="0.1" min="0" placeholder="si non rectangulaire" />
+            </div>
+          </div>
+          <button class="btn-supprimer" onclick="supprimerElement('piece-${pieceCount}')">✕ Supprimer cette pièce</button>
+        `;
+        container.appendChild(div);
+      }
+
+      // ======= BAIES =======
+      function ajouterBaie(type) {
+        let container, count, label, color;
+        if (type === 'porte') {
+          container = document.getElementById('portes-container');
+          count = ++porteCount;
+          label = '🚪 Porte';
+          color = '#e74c3c';
+        } else if (type === 'fenetre') {
+          container = document.getElementById('fenetres-container');
+          count = ++fenetreCount;
+          label = '🪟 Fenêtre';
+          color = '#3498db';
+        } else {
+          container = document.getElementById('vides-container');
+          count = ++videCount;
+          label = '⬜ Ouverture vide';
+          color = '#95a5a6';
+        }
+
+        const id = type + '-' + count;
+        const div = document.createElement('div');
+        div.className = 'piece-bloc';
+        div.id = id;
+        div.style.borderLeftColor = color;
+        div.innerHTML = `
+          <h4>${label} ${count}</h4>
+          <div class="input-row">
+            <div class="input-groupe">
+              <label>Largeur (m)</label>
+              <input type="number" class="baie-l" step="0.01" min="0" placeholder="ex: 0.90" />
+            </div>
+            <div class="input-groupe">
+              <label>Hauteur (m)</label>
+              <input type="number" class="baie-h" step="0.01" min="0" placeholder="ex: 2.10" />
+            </div>
+            <div class="input-groupe">
+              <label>Nombre</label>
+              <input type="number" class="baie-n" step="1" min="0" value="1" />
+            </div>
+          </div>
+          <button class="btn-supprimer" onclick="supprimerElement('${id}')">✕ Supprimer</button>
+        `;
+        container.appendChild(div);
+      }
+
+      function supprimerElement(id) {
+        const el = document.getElementById(id);
+        if (el) el.remove();
+      }
+
+      // ======= CALCUL AGGLOS =======
+      function calculerAgglos() {
+        let perimetreTotal = 0;
+        let surfaceSol = 0;
+
+        const pieces = document.querySelectorAll('#pieces-container .piece-bloc');
+        pieces.forEach(piece => {
+          const l = parseFloat(piece.querySelector('.piece-l').value) || 0;
+          const w = parseFloat(piece.querySelector('.piece-w').value) || 0;
+          const p = parseFloat(piece.querySelector('.piece-p').value) || 0;
+          if (p > 0) {
+            perimetreTotal += p;
+          } else {
+            perimetreTotal += 2 * (l + w);
+          }
+          surfaceSol += l * w;
+        });
+
+        const hauteur = parseFloat(document.getElementById('hauteur-murs').value) || 3;
+        let surfaceMurs = perimetreTotal * hauteur;
+        let surfaceBaiesPeinture = 0;
+
+        // Portes et fenêtres — déduites des agglos ET de la peinture
+        document.querySelectorAll('#portes-container .piece-bloc, #fenetres-container .piece-bloc').forEach(baie => {
+          const bl = parseFloat(baie.querySelector('.baie-l').value) || 0;
+          const bh = parseFloat(baie.querySelector('.baie-h').value) || 0;
+          const bn = parseFloat(baie.querySelector('.baie-n').value) || 1;
+          surfaceMurs -= bl * bh * bn;
+          surfaceBaiesPeinture += bl * bh * bn;
+        });
+
+        // Ouvertures vides — déduites des agglos UNIQUEMENT
+        document.querySelectorAll('#vides-container .piece-bloc').forEach(baie => {
+          const bl = parseFloat(baie.querySelector('.baie-l').value) || 0;
+          const bh = parseFloat(baie.querySelector('.baie-h').value) || 0;
+          const bn = parseFloat(baie.querySelector('.baie-n').value) || 1;
+          surfaceMurs -= bl * bh * bn;
+        });
+
+        if (surfaceMurs < 0) surfaceMurs = 0;
+
+        const nbAgglos = Math.ceil(surfaceMurs * 13);
+
+        // Stocker pour peinture et carrelage
+        window.surfaceMursCalculee = surfaceMurs;
+        window.surfaceBaiesPeintureCalculee = surfaceBaiesPeinture;
+        window.surfaceSolCalculee = surfaceSol;
+
+        const grid = document.getElementById('grid-agglos');
+        grid.innerHTML = `
+          <div class="resultat-carte">
+            <span class="valeur">${surfaceMurs.toFixed(1)}</span>
+            <span class="unite">m² de murs nets</span>
+          </div>
+          <div class="resultat-carte">
+            <span class="valeur">${nbAgglos.toLocaleString()}</span>
+            <span class="unite">agglos nécessaires</span>
+          </div>
+          <div class="resultat-carte">
+            <span class="valeur">${surfaceSol.toFixed(1)}</span>
+            <span class="unite">m² de surface au sol</span>
+          </div>
+        `;
+        document.getElementById('resultats-agglos').style.display = 'block';
+      }
+
+      // ======= CALCUL BÉTON =======
+      function calculerBeton() {
+        let volumeTotal = 0;
+
+        const dl = parseFloat(document.getElementById('dalle-l').value) || 0;
+        const dw = parseFloat(document.getElementById('dalle-w').value) || 0;
+        const dep = parseFloat(document.getElementById('dalle-ep').value) || 0;
+        volumeTotal += dl * dw * dep;
+
+        // Poteaux rectangulaires
+        document.querySelectorAll('.poteau-bloc').forEach(bloc => {
+          const pl = parseFloat(bloc.querySelector('.poteau-l') ? bloc.querySelector('.poteau-l').value : 0) || 0;
+          const pw = parseFloat(bloc.querySelector('.poteau-w') ? bloc.querySelector('.poteau-w').value : 0) || 0;
+          const ph = parseFloat(bloc.querySelector('.poteau-h') ? bloc.querySelector('.poteau-h').value : 0) || 0;
+          const pn = parseFloat(bloc.querySelector('.poteau-n') ? bloc.querySelector('.poteau-n').value : 0) || 0;
+          volumeTotal += pl * pw * ph * pn;
+        });
+
+        // Poteau circulaire
+        const r = parseFloat(document.getElementById('poteau-circ-r').value) || 0;
+        const hc = parseFloat(document.getElementById('poteau-circ-h').value) || 0;
+        const nc = parseFloat(document.getElementById('poteau-circ-n').value) || 0;
+        volumeTotal += Math.PI * r * r * hc * nc;
+
+        // Chainage
+        const cw = parseFloat(document.getElementById('chainage-w').value) || 0;
+        const ch = parseFloat(document.getElementById('chainage-h').value) || 0;
+        const cld = parseFloat(document.getElementById('chainage-ld').value) || 0;
+        volumeTotal += cw * ch * cld;
+
+        // Linteaux
+        const lw = parseFloat(document.getElementById('linteau-w').value) || 0;
+        const lh = parseFloat(document.getElementById('linteau-h').value) || 0;
+        const lld = parseFloat(document.getElementById('linteau-ld').value) || 0;
+        volumeTotal += lw * lh * lld;
+
+        const nbSacs = Math.ceil(volumeTotal);
+        const brouettesGravier = Math.ceil(volumeTotal * 2);
+        const brouettesSable = Math.ceil(volumeTotal * 1);
+        const m3Gravier = (brouettesGravier * 0.06).toFixed(2);
+        const m3Sable = (brouettesSable * 0.06).toFixed(2);
+
+        const grid = document.getElementById('grid-beton');
+        grid.innerHTML = `
+          <div class="resultat-carte">
+            <span class="valeur">${volumeTotal.toFixed(2)}</span>
+            <span class="unite">m³ de béton total</span>
+          </div>
+          <div class="resultat-carte">
+            <span class="valeur">${nbSacs}</span>
+            <span class="unite">sacs de ciment 50kg</span>
+          </div>
+          <div class="resultat-carte">
+            <span class="valeur">${brouettesGravier}</span>
+            <span class="unite">brouettes de gravier (${m3Gravier} m³)</span>
+          </div>
+          <div class="resultat-carte">
+            <span class="valeur">${brouettesSable}</span>
+            <span class="unite">brouettes de sable (${m3Sable} m³)</span>
+          </div>
+        `;
+        document.getElementById('resultats-beton').style.display = 'block';
+      }
+
+      // ======= CALCUL PEINTURE =======
+      function calculerPeinture() {
+        const surfaceMurs = window.surfaceMursCalculee || 0;
+        const surfaceBaies = window.surfaceBaiesPeintureCalculee || 0;
+        const surfacePlafond = parseFloat(document.getElementById('surface-plafond').value) || 0;
+        const couches = parseInt(document.getElementById('nb-couches').value) || 2;
+
+        // Surface murs à peindre = murs nets + baies portes/fenêtres (cadres) x 2 faces
+        const surfaceMursPeinture = (surfaceMurs + surfaceBaies) * 2;
+        const surfaceTotale = (surfaceMursPeinture + surfacePlafond) * couches;
+        const litres = Math.ceil(surfaceTotale / 10);
+        const pots4L = Math.ceil(litres / 4);
+        const pots10L = Math.ceil(litres / 10);
+
+        const avertMurs = surfaceMurs === 0
+          ? '<p style="color:rgba(255,255,255,0.8); font-size:13px; margin-bottom:15px;">⚠️ Calculez d\'abord les agglos pour obtenir la surface des murs automatiquement.</p>'
+          : '';
+
+        const grid = document.getElementById('grid-peinture');
+        grid.innerHTML = `
+          ${avertMurs}
+          <div class="resultat-carte">
+            <span class="valeur">${surfaceMursPeinture.toFixed(1)}</span>
+            <span class="unite">m² de murs à peindre</span>
+          </div>
+          <div class="resultat-carte">
+            <span class="valeur">${surfacePlafond.toFixed(1)}</span>
+            <span class="unite">m² de plafond</span>
+          </div>
+          <div class="resultat-carte">
+            <span class="valeur">${litres}</span>
+            <span class="unite">litres (${couches} couches)</span>
+          </div>
+          <div class="resultat-carte">
+            <span class="valeur">${pots4L}</span>
+            <span class="unite">pots de 4L</span>
+          </div>
+          <div class="resultat-carte">
+            <span class="valeur">${pots10L}</span>
+            <span class="unite">pots de 10L</span>
+          </div>
+        `;
+        document.getElementById('resultats-peinture').style.display = 'block';
+      }
+
+      // ======= CALCUL CARRELAGE =======
+      function calculerCarrelage() {
+        const surfaceSol = window.surfaceSolCalculee || 0;
+        const surfaceAvecMarge = surfaceSol * 1.10;
+        const nbPaquets = Math.ceil(surfaceAvecMarge / 1.44);
+        const nbCarreaux = nbPaquets * 4;
+
+        const avertSol = surfaceSol === 0
+          ? '<p style="color:rgba(255,255,255,0.8); font-size:13px; margin-bottom:15px;">⚠️ Calculez d\'abord les agglos pour obtenir la surface au sol automatiquement.</p>'
+          : '';
+
+        const grid = document.getElementById('grid-carrelage');
+        grid.innerHTML = `
+          ${avertSol}
+          <div class="resultat-carte">
+            <span class="valeur">${surfaceSol.toFixed(1)}</span>
+            <span class="unite">m² de surface au sol</span>
+          </div>
+          <div class="resultat-carte">
+            <span class="valeur">${surfaceAvecMarge.toFixed(1)}</span>
+            <span class="unite">m² avec marge 10%</span>
+          </div>
+          <div class="resultat-carte">
+            <span class="valeur">${nbPaquets}</span>
+            <span class="unite">paquets de carreaux 40x40</span>
+          </div>
+          <div class="resultat-carte">
+            <span class="valeur">${nbCarreaux}</span>
+            <span class="unite">carreaux au total</span>
+          </div>
+        `;
+        document.getElementById('resultats-carrelage').style.display = 'block';
+      }
+
+      window.onload = function() {
+        ajouterPiece();
+        ajouterPiece();
+      };
+    </script>
+
+  </body>
+</html>
