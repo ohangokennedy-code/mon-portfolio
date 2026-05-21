@@ -2,94 +2,105 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <title>Hango Kennedy — Dessinateur-Projeteur</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hango Kennedy — Concepteur & Conducteur de Travaux</title>
     <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
   </head>
-  <script src="script.js"></script>
   <body>
 
+    <!-- HEADER -->
     <header>
-  <div class="header-gauche">
-    <img src="logo.png" alt="Logo Hango Kennedy" class="logo-header" />
-  </div>
-
-  <div class="header-centre">
-    <img src="photo.jpg" alt="Photo de Hango Kennedy" class="photo-profil" />
-    <p class="header-nom">Hango Kennedy</p>
-    <p class="header-titre">Dessinateur-Projeteur</p>
-  </div>
-
-  <div class="header-droite">
-    <nav>
-      <a href="#apropos">À propos</a>
-      <a href="#competences">Compétences</a>
-      <a href="#formations">Formations</a>
-      <a href="#projets">Projets</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
+      <div class="header-gauche">
+        <img src="logo.png" alt="Logo Hango Kennedy" class="logo-header" />
+      </div>
+      <div class="header-centre">
+        <img src="photo.jpg" alt="Photo de Hango Kennedy" class="photo-profil" />
+        <p class="header-nom">Hango Kennedy</p>
+        <p class="header-titre">Concepteur & Conducteur de Travaux</p>
+      </div>
+      <div class="header-droite">
+        <nav>
+          <a href="#apropos">À propos</a>
+          <a href="#competences">Compétences</a>
+          <a href="#formations">Formations</a>
+          <a href="#projets">Projets</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
     </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-contenu">
+        <p class="hero-tag">Basé à Abidjan, Côte d'Ivoire</p>
+        <h1>Donnez vie à vos projets de construction</h1>
+        <p class="hero-description">Plans techniques · Visualisations 3D · Estimations · Formations</p>
+        <div class="hero-boutons">
+          <a href="#projets" class="btn-principal">Voir mes projets</a>
+          <a href="#contact" class="btn-secondaire">Me contacter</a>
+        </div>
+      </div>
+    </section>
 
     <main>
 
+      <!-- À PROPOS -->
       <section id="apropos">
         <h2>À propos</h2>
-        <p>Diplômé BTS Génie Civil option Bâtiment, je suis dessinateur-projeteur
-        spécialisé dans la conception et la production de plans techniques.
-        Rigoureux et méthodique, je maîtrise les outils de dessin technique
-        et le suivi de chantier.</p>
+        <p>Concepteur et conducteur de travaux diplômé BTS Génie Civil option
+        Bâtiment, je transforme vos projets de construction en plans techniques
+        précis, estimations détaillées et visualisations 3D immersives.
+        Méticuleux et pleinement investi dans chaque livrable, j'interviens
+        auprès des particuliers et des professionnels, de la conception jusqu'à
+        la livraison. Basé à Abidjan, je dispense également des formations en
+        logiciels de bureautique et de bâtiment : AutoCAD, ArchiCAD, Twinmotion
+        et Microsoft Office.</p>
       </section>
 
+      <!-- COMPÉTENCES -->
       <section id="competences">
         <h2>Compétences</h2>
-
         <div class="competences-grid">
 
           <div>
             <h3>Logiciels</h3>
-
             <div class="competence-item">
               <span>AutoCAD</span>
               <div class="barre-fond">
                 <div class="barre-niveau" style="width: 75%"></div>
               </div>
             </div>
-
             <div class="competence-item">
               <span>Archicad</span>
               <div class="barre-fond">
                 <div class="barre-niveau" style="width: 80%"></div>
               </div>
             </div>
-
             <div class="competence-item">
               <span>Twinmotion</span>
               <div class="barre-fond">
                 <div class="barre-niveau" style="width: 70%"></div>
               </div>
             </div>
-
             <div class="competence-item">
               <span>Camtasia</span>
               <div class="barre-fond">
                 <div class="barre-niveau" style="width: 60%"></div>
               </div>
             </div>
-
             <div class="competence-item">
               <span>Photoshop</span>
               <div class="barre-fond">
                 <div class="barre-niveau" style="width: 50%"></div>
               </div>
             </div>
-
             <div class="competence-item">
               <span>Microsoft Office</span>
               <div class="barre-fond">
                 <div class="barre-niveau" style="width: 70%"></div>
               </div>
             </div>
-
           </div>
 
           <div>
@@ -98,234 +109,209 @@
               <li>Lecture et production de plans</li>
               <li>Animation vidéo</li>
               <li>Métrés et quantitatifs</li>
-              <li>Suivi de chantier</li>
+              <li>Conduite de travaux</li>
               <li>Normes de construction</li>
             </ul>
           </div>
 
         </div>
+      </section>
+
+      <!-- FORMATIONS -->
+      <section id="formations">
+        <h2>Formations dispensées</h2>
+        <div class="formations-grid">
+
+          <div class="formation-carte">
+            <div class="formation-icone">🖥️</div>
+            <h3>Microsoft Office</h3>
+            <ul>
+              <li>Word</li>
+              <li>Excel</li>
+              <li>PowerPoint</li>
+            </ul>
+          </div>
+
+          <div class="formation-carte">
+            <div class="formation-icone">🏗️</div>
+            <h3>Logiciels de bâtiment</h3>
+            <ul>
+              <li>AutoCAD</li>
+              <li>ArchiCAD</li>
+              <li>Twinmotion</li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- PROJETS -->
+      <section id="projets">
+        <h2>Projets</h2>
+
+        <div class="categorie">
+          <div class="categorie-header" onclick="toggleCategorie(this)">
+            <span>🎬 Animations vidéo</span>
+            <span class="toggle-icon">+</span>
+          </div>
+          <div class="categorie-contenu">
+            <div class="projets-grid">
+              <div class="carte">
+                <img src="video1.jpg" alt="Villa duplex Assinie" />
+                <div class="carte-contenu">
+                  <span class="tag">Animation vidéo</span>
+                  <h3>Villa duplex à Assinie</h3>
+                  <p>Modélisation et animation 3D d'une villa duplex.</p>
+                  <a href="https://www.youtube.com/embed/_Y7qx12xeio" target="_blank" class="btn-voir">▶ Voir la vidéo</a>
+                </div>
+              </div>
+              <div class="carte">
+                <img src="video2.jpg" alt="Résidence duplex Doropo" />
+                <div class="carte-contenu">
+                  <span class="tag">Animation vidéo</span>
+                  <h3>Résidence duplex à Doropo</h3>
+                  <p>Animation 3D d'une résidence duplex.</p>
+                  <a href="https://www.youtube.com/embed/3iq2oxbuSQg" target="_blank" class="btn-voir">▶ Voir la vidéo</a>
+                </div>
+              </div>
+              <div class="carte">
+                <img src="video3.jpg" alt="Plein air Séguéla" />
+                <div class="carte-contenu">
+                  <span class="tag">Animation vidéo</span>
+                  <h3>Plein air à Séguéla</h3>
+                  <p>Animation 3D d'un espace plein air.</p>
+                  <a href="https://www.youtube.com/embed/-VTdKG5i5l0" target="_blank" class="btn-voir">▶ Voir la vidéo</a>
+                </div>
+              </div>
+              <div class="carte">
+                <img src="video4.jpg" alt="Villa basse F4" />
+                <div class="carte-contenu">
+                  <span class="tag">Animation vidéo</span>
+                  <h3>Villa basse de type F4</h3>
+                  <p>Animation 3D d'une villa basse de type F4.</p>
+                  <a href="https://www.youtube.com/embed/8Hbu-ckBBEo" target="_blank" class="btn-voir">▶ Voir la vidéo</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="categorie">
+          <div class="categorie-header" onclick="toggleCategorie(this)">
+            <span>🏠 Rendus 3D</span>
+            <span class="toggle-icon">+</span>
+          </div>
+          <div class="categorie-contenu">
+            <div class="projets-grid">
+              <div class="carte">
+                <img src="rendu1.jpg" alt="Mosquée AEEMCI Bouna" />
+                <div class="carte-contenu">
+                  <span class="tag">Rendu 3D</span>
+                  <h3>Mosquée AEEMCI Bouna</h3>
+                  <p>Rendu photoréaliste de la mosquée AEEMCI de Bouna.</p>
+                </div>
+              </div>
+              <div class="carte">
+                <img src="rendu2.jpg" alt="Immeuble R+2" />
+                <div class="carte-contenu">
+                  <span class="tag">Rendu 3D</span>
+                  <h3>Immeuble R+2</h3>
+                  <p>Rendu photoréaliste d'un immeuble R+2.</p>
+                </div>
+              </div>
+              <div class="carte">
+                <img src="rendu3.jpg" alt="Villa basse F4" />
+                <div class="carte-contenu">
+                  <span class="tag">Rendu 3D</span>
+                  <h3>Villa basse de type F4</h3>
+                  <p>Rendu photoréaliste d'une villa basse de type F4.</p>
+                </div>
+              </div>
+              <div class="carte">
+                <img src="rendu4.jpg" alt="Résidence duplex" />
+                <div class="carte-contenu">
+                  <span class="tag">Rendu 3D</span>
+                  <h3>Résidence duplex</h3>
+                  <p>Rendu photoréaliste d'une résidence duplex.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="categorie">
+          <div class="categorie-header" onclick="toggleCategorie(this)">
+            <span>📐 Plans 2D</span>
+            <span class="toggle-icon">+</span>
+          </div>
+          <div class="categorie-contenu">
+            <div class="projets-grid">
+              <div class="carte">
+                <img src="plan1.jpg" alt="Villa basse F2" />
+                <div class="carte-contenu">
+                  <span class="tag">Plan 2D</span>
+                  <h3>Villa basse de type F2</h3>
+                  <p>Plans techniques d'exécution d'une villa basse F2.</p>
+                </div>
+              </div>
+              <div class="carte">
+                <img src="plan2.jpg" alt="Villa duplex" />
+                <div class="carte-contenu">
+                  <span class="tag">Plan 2D</span>
+                  <h3>Villa duplex</h3>
+                  <p>Plans techniques d'exécution d'une villa duplex.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="categorie">
+          <div class="categorie-header" onclick="toggleCategorie(this)">
+            <span>📊 Devis</span>
+            <span class="toggle-icon">+</span>
+          </div>
+          <div class="categorie-contenu">
+            <div class="projets-grid">
+              <div class="carte">
+                <img src="devis1.jpg" alt="Devis Villa F2" />
+                <div class="carte-contenu">
+                  <span class="tag">Devis</span>
+                  <h3>Villa basse de type F2</h3>
+                  <p>Estimation détaillée des coûts de construction.</p>
+                </div>
+              </div>
+              <div class="carte">
+                <img src="devis2.jpg" alt="Devis Immeuble R+1" />
+                <div class="carte-contenu">
+                  <span class="tag">Devis</span>
+                  <h3>Immeuble R+1</h3>
+                  <p>Estimation détaillée des coûts de construction.</p>
+                </div>
+              </div>
+              <div class="carte">
+                <img src="devis3.jpg" alt="Devis Clôture parc" />
+                <div class="carte-contenu">
+                  <span class="tag">Devis</span>
+                  <h3>Clôture parc à bétail</h3>
+                  <p>Estimation détaillée des coûts de clôture.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </section>
 
-      <section id="formations">
-  <h2>Formations dispensées</h2>
-
-  <div class="formations-grid">
-
-    <div class="formation-carte">
-      <div class="formation-icone">🖥️</div>
-      <h3>Microsoft Office</h3>
-      <ul>
-        <li>Word</li>
-        <li>Excel</li>
-        <li>PowerPoint</li>
-      </ul>
-    </div>
-
-    <div class="formation-carte">
-      <div class="formation-icone">🏗️</div>
-      <h3>Logiciels de bâtiment</h3>
-      <ul>
-        <li>AutoCAD</li>
-        <li>ArchiCAD</li>
-        <li>Twinmotion</li>
-      </ul>
-    </div>
-
-  </div>
-
-</section>
-
-      <section id="projets">
-  <h2>Projets</h2>
-
-  <!-- ANIMATIONS VIDÉO -->
-  <div class="categorie">
-    <div class="categorie-header" onclick="toggleCategorie(this)">
-      <span>🎬 Animations vidéo</span>
-      <span class="toggle-icon">+</span>
-    </div>
-    <div class="categorie-contenu">
-      <div class="projets-grid">
-
-        <div class="carte">
-          <img src="video1.jpg" alt="Villa duplex Assinie" />
-          <div class="carte-contenu">
-            <span class="tag">Animation vidéo</span>
-            <h3>Villa duplex à Assinie</h3>
-            <p>Modélisation et animation 3D d'une villa duplex.</p>
-            <a href="https://www.youtube.com/embed/_Y7qx12xeio" target="_blank" class="btn-voir">▶ Voir la vidéo</a>
-          </div>
-        </div>
-
-        <div class="carte">
-          <img src="video2.jpg" alt="Résidence duplex Doropo" />
-          <div class="carte-contenu">
-            <span class="tag">Animation vidéo</span>
-            <h3>Résidence duplex à Doropo</h3>
-            <p>Animation 3D d'une résidence duplex.</p>
-            <a href="https://www.youtube.com/embed/3iq2oxbuSQg" target="_blank" class="btn-voir">▶ Voir la vidéo</a>
-          </div>
-        </div>
-
-        <div class="carte">
-          <img src="video3.jpg" alt="Plein air Séguéla" />
-          <div class="carte-contenu">
-            <span class="tag">Animation vidéo</span>
-            <h3>Plein air à Séguéla</h3>
-            <p>Animation 3D d'un espace plein air.</p>
-            <a href="https://www.youtube.com/embed/-VTdKG5i5l0" target="_blank" class="btn-voir">▶ Voir la vidéo</a>
-          </div>
-        </div>
-
-        <div class="carte">
-          <img src="video4.jpg" alt="Villa basse F4" />
-          <div class="carte-contenu">
-            <span class="tag">Animation vidéo</span>
-            <h3>Villa basse de type F4</h3>
-            <p>Animation 3D d'une villa basse de type F4.</p>
-            <a href="https://www.youtube.com/embed/8Hbu-ckBBEo" target="_blank" class="btn-voir">▶ Voir la vidéo</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- RENDUS 3D -->
-  <div class="categorie">
-    <div class="categorie-header" onclick="toggleCategorie(this)">
-      <span>🏠 Rendus 3D</span>
-      <span class="toggle-icon">+</span>
-    </div>
-    <div class="categorie-contenu">
-      <div class="projets-grid">
-
-        <div class="carte">
-          <img src="rendu1.jpg" alt="Mosquée AEEMCI Bouna" />
-          <div class="carte-contenu">
-            <span class="tag">Rendu 3D</span>
-            <h3>Mosquée AEEMCI Bouna</h3>
-            <p>Rendu photoréaliste de la mosquée AEEMCI de Bouna.</p>
-          </div>
-        </div>
-
-        <div class="carte">
-          <img src="rendu2.jpg" alt="Immeuble R+2" />
-          <div class="carte-contenu">
-            <span class="tag">Rendu 3D</span>
-            <h3>Immeuble R+2</h3>
-            <p>Rendu photoréaliste d'un immeuble R+2.</p>
-          </div>
-        </div>
-
-        <div class="carte">
-          <img src="rendu3.jpg" alt="Villa basse F4" />
-          <div class="carte-contenu">
-            <span class="tag">Rendu 3D</span>
-            <h3>Villa basse de type F4</h3>
-            <p>Rendu photoréaliste d'une villa basse de type F4.</p>
-          </div>
-        </div>
-
-        <div class="carte">
-          <img src="rendu4.jpg" alt="Résidence duplex" />
-          <div class="carte-contenu">
-            <span class="tag">Rendu 3D</span>
-            <h3>Résidence duplex</h3>
-            <p>Rendu photoréaliste d'une résidence duplex.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- PLANS 2D -->
-  <div class="categorie">
-    <div class="categorie-header" onclick="toggleCategorie(this)">
-      <span>📐 Plans 2D</span>
-      <span class="toggle-icon">+</span>
-    </div>
-    <div class="categorie-contenu">
-      <div class="projets-grid">
-
-        <div class="carte">
-          <img src="plan1.jpg" alt="Villa basse F2" />
-          <div class="carte-contenu">
-            <span class="tag">Plan 2D</span>
-            <h3>Villa basse de type F2</h3>
-            <p>Plans techniques d'exécution d'une villa basse F2.</p>
-          </div>
-        </div>
-
-        <div class="carte">
-          <img src="plan2.jpg" alt="Villa duplex" />
-          <div class="carte-contenu">
-            <span class="tag">Plan 2D</span>
-            <h3>Villa duplex</h3>
-            <p>Plans techniques d'exécution d'une villa duplex.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- DEVIS -->
-  <div class="categorie">
-    <div class="categorie-header" onclick="toggleCategorie(this)">
-      <span>📊 Devis</span>
-      <span class="toggle-icon">+</span>
-    </div>
-    <div class="categorie-contenu">
-      <div class="projets-grid">
-
-        <div class="carte">
-          <img src="devis1.jpg" alt="Devis Villa F2" />
-          <div class="carte-contenu">
-            <span class="tag">Devis</span>
-            <h3>Villa basse de type F2</h3>
-            <p>Estimation détaillée des coûts de construction.</p>
-          </div>
-        </div>
-
-        <div class="carte">
-          <img src="devis2.jpg" alt="Devis Immeuble R+1" />
-          <div class="carte-contenu">
-            <span class="tag">Devis</span>
-            <h3>Immeuble R+1</h3>
-            <p>Estimation détaillée des coûts de construction.</p>
-          </div>
-        </div>
-
-        <div class="carte">
-          <img src="devis3.jpg" alt="Devis Clôture parc" />
-          <div class="carte-contenu">
-            <span class="tag">Devis</span>
-            <h3>Clôture parc à bétail</h3>
-            <p>Estimation détaillée des coûts de clôture.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-</section>
-
+      <!-- CONTACT -->
       <section id="contact">
-  <h2>Contact</h2>
-  <p>📍 Abidjan, Côte d'Ivoire</p>
-  <p>📧 <a href="mailto:ohangokennedy@gmail.com">ohangokennedy@gmail.com</a></p>
-  <p>📞 <a href="tel:+2250564606742">05 64 60 67 42</a></p>
-  <p>📞 <a href="tel:+2250712682310">07 12 68 23 10</a></p>
-  <p>
-    <a href="https://wa.me/2250564606742" target="_blank">💬 WhatsApp — 05 64 60 67 42</a>
-  </p>
-  <p>
-    <a href="https://wa.me/2250712682310" target="_blank">💬 WhatsApp — 07 12 68 23 10</a>
-  </p>
+        <h2>Contact</h2>
+        <p>📍 Abidjan, Côte d'Ivoire</p>
+        <p>📧 <a href="mailto:ohangokennedy@gmail.com">ohangokennedy@gmail.com</a></p>
+        <p>📞 <a href="tel:+2250564606742">05 64 60 67 42</a></p>
+        <p>📞 <a href="tel:+2250712682310">07 12 68 23 10</a></p>
+        <p><a href="https://wa.me/2250564606742" target="_blank">💬 WhatsApp — 05 64 60 67 42</a></p>
+        <p><a href="https://wa.me/2250712682310" target="_blank">💬 WhatsApp — 07 12 68 23 10</a></p>
       </section>
 
     </main>
@@ -335,5 +321,6 @@
       <p>© 2026 Hango Kennedy</p>
     </footer>
 
+    <script src="script.js"></script>
   </body>
 </html>
