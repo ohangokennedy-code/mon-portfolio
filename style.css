@@ -628,3 +628,57 @@ footer p {
   opacity: 0.7;
   margin-top: 8px;
 }
+
+/* ======= ANIMATIONS AU SCROLL ======= */
+.apparaitre {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.apparaitre.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ======= BOUTON RETOUR EN HAUT ======= */
+.btn-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: var(--bleu-clair);
+  color: var(--blanc);
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.btn-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.btn-top:hover {
+  background-color: var(--bleu-moyen);
+  transform: translateY(-3px);
+}
+
+/* ======= NAV LIEN ACTIF ======= */
+nav a.actif {
+  color: var(--blanc);
+  border-bottom-color: var(--bleu-clair);
+}
+
+/* Hero toujours visible — pas d'animation */
+.hero * {
+  opacity: 1 !important;
+  transform: none !important;
+}
