@@ -511,3 +511,88 @@ footer p {
   }
 
 }
+
+/* ======= FORMULAIRE CONTACT ======= */
+.contact-grid {
+  display: flex;
+  gap: 50px;
+  align-items: flex-start;
+}
+
+.contact-infos {
+  min-width: 220px;
+}
+
+.contact-infos p {
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+.contact-form {
+  flex: 1;
+}
+
+.form-groupe {
+  margin-bottom: 18px;
+}
+
+.form-groupe label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--bleu-fonce);
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.form-groupe input,
+.form-groupe textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid var(--gris);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'Inter', Arial, sans-serif;
+  color: var(--texte);
+  background-color: var(--gris-clair);
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.form-groupe input:focus,
+.form-groupe textarea:focus {
+  border-color: var(--bleu-clair);
+  background-color: var(--blanc);
+}
+
+.form-groupe textarea {
+  resize: vertical;
+}
+
+.btn-envoyer {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--bleu-clair);
+  color: var(--blanc);
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.btn-envoyer:hover {
+  background-color: var(--bleu-moyen);
+  transform: translateY(-2px);
+}
+
+/* Responsive contact */
+@media (max-width: 768px) {
+  .contact-grid {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
