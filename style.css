@@ -682,3 +682,141 @@ nav a.actif {
   opacity: 1 !important;
   transform: none !important;
 }
+
+/* Hero sous-titre */
+.hero-sous-titre {
+  display: block;
+  font-size: 0.6em;
+  font-weight: 300;
+  opacity: 0.8;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+/* ======= SERVICES ======= */
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.service-carte {
+  background-color: var(--gris-clair);
+  border-radius: var(--radius);
+  padding: 30px;
+  border-top: 4px solid var(--bleu-clair);
+  transition: transform 0.2s;
+}
+
+.service-carte:hover {
+  transform: translateY(-4px);
+}
+
+.service-icone {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.service-carte h3 {
+  color: var(--bleu-fonce);
+  font-size: 17px;
+  margin-bottom: 12px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.service-carte ul {
+  padding-left: 18px;
+}
+
+.service-carte li {
+  color: var(--texte-leger);
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+/* Responsive services */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ======= POURQUOI MOI ======= */
+.pourquoi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.pourquoi-carte {
+  background: linear-gradient(135deg, var(--bleu-fonce), var(--bleu-moyen));
+  border-radius: var(--radius);
+  padding: 30px;
+  color: var(--blanc);
+  transition: transform 0.2s;
+}
+
+.pourquoi-carte:hover {
+  transform: translateY(-4px);
+}
+
+.pourquoi-icone {
+  font-size: 36px;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.pourquoi-carte h3 {
+  color: var(--blanc);
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.pourquoi-carte p {
+  font-size: 14px;
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+/* Responsive pourquoi */
+@media (max-width: 768px) {
+  .pourquoi-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ======= BOUTON WHATSAPP FLOTTANT ======= */
+.btn-whatsapp {
+  position: fixed;
+  bottom: 90px;
+  left: 30px;
+  background-color: #25d366;
+  color: white;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(37,211,102,0.4);
+  text-decoration: none;
+  z-index: 999;
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+.btn-whatsapp:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(37,211,102,0.6);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.4); }
+  70% { box-shadow: 0 0 0 12px rgba(37,211,102,0); }
+  100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+}
