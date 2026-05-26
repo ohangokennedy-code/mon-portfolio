@@ -260,7 +260,8 @@ ul li {
 
 /* ======= FORMATIONS ======= */
 .formations-grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 25px;
 }
 
@@ -497,7 +498,7 @@ footer p {
   }
 
   .formations-grid {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 
   .projets-grid {
